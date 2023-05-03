@@ -1,8 +1,14 @@
 <?php 
-$paragraph = ' '.trim($_GET['paragraph']).' ';
+$paragraph = trim($_GET['paragraph']);
 $badWord = trim($_GET['badWord']);
-$toReplace = " $badWord ";
-$censuredParagraph = str_replace($toReplace, ' *** ', $paragraph);
+if((isset($paragraph) && isset($badWord)) && (!empty($paragraph) && !empty($badWord))){
+    $paragraph = " $paragraph ";
+    $badWord = " $badWord ";
+    $censuredParagraph = str_replace($badWord, ' *** ', $paragraph);
+} else {
+$paragraph = 'Non hai inserito niente';
+$censuredParagraph = 'Scrivi parola da censurare';
+}
 ?>
 
 <!DOCTYPE html>
