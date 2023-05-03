@@ -1,7 +1,8 @@
 <?php 
-$paragraph = $_GET['paragraph'];
-$badWord = $_GET['badWord'];
-$censuredParagraph = str_replace($badWord, '***', $paragraph);
+$paragraph = ' '.trim($_GET['paragraph']).' ';
+$badWord = trim($_GET['badWord']);
+$toReplace = " $badWord ";
+$censuredParagraph = str_replace($toReplace, ' *** ', $paragraph);
 ?>
 
 <!DOCTYPE html>
