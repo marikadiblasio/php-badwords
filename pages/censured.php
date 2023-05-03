@@ -1,6 +1,7 @@
 <?php 
 $paragraph = $_GET['paragraph'];
-$badWord = $_GET['badWord']
+$badWord = $_GET['badWord'];
+$censuredParagraph = str_replace($badWord, '***', $paragraph);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,12 @@ $badWord = $_GET['badWord']
     <div>
        <p>
             <?php 
-                echo $paragraph. ' '.$badWord;
+                echo $paragraph. '. Numero di caratteri nel paragrafo: '.strlen($paragraph);
+            ?>
+        </p>
+        <p>
+            <?php 
+                echo $censuredParagraph. '. Numero di caratteri nel paragrafo: '.strlen($censuredParagraph);
             ?>
         </p>
     </div>
