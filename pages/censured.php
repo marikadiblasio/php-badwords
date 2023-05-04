@@ -1,6 +1,6 @@
 <?php 
-$paragraph = trim($_GET['paragraph']);
-$badWord = trim($_GET['badWord']);
+$paragraph = trim($_POST['paragraph']);
+$badWord = trim($_POST['badWord']);
 $censure = '***';
 if((isset($paragraph) && isset($badWord)) && (!empty($paragraph) && !empty($badWord))){
     $paragraph = explode(' ', $paragraph);
@@ -26,16 +26,14 @@ $censuredParagraph = 'Scrivi parola da censurare';
 </head>
 <body>
     <div>
-       <p>
-            <?php 
-                echo $paragraph. '. Numero di caratteri nel paragrafo: '.strlen($paragraph);
-            ?>
-        </p>
         <p>
-            <?php 
-                echo $censuredParagraph. '. Numero di caratteri nel paragrafo: '.strlen($censuredParagraph);
-            ?>
+            <?php echo $paragraph;?>
         </p>
+        <span>Numero di caratteri nel paragrafo: <?php echo strlen($paragraph); ?> </span>
+        <p>
+            <?php echo $censuredParagraph; ?>
+        </p>
+        <span>Numero di caratteri nel paragrafo: <?php echo strlen($paragraph); ?> </span>
     </div>
 </body>
 </html>
